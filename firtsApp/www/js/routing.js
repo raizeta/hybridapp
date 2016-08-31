@@ -3,29 +3,53 @@ angular.module('starter')
 {
   $ionicConfigProvider.views.maxCache(0);
   $stateProvider
-  .state('login', 
+  .state('auth', 
   {
-    url: '/login',
-    templateUrl: 'templates/login.html',
-    controller: 'LoginCtrl'
+    url: '/',
+    templateUrl: 'templates/mainlogin.html',
+    abstract:true,
+
   })
-  
+  .state('auth.login', 
+  {
+    url: 'auth/login',
+    views: 
+    {
+        'login-tab': 
+        {
+          templateUrl: 'templates/login.html',
+          controller: 'LoginCtrl',
+          parent: "main",
+        }
+    }
+  })
+  .state('auth.register', 
+  {
+    url: 'auth/register',
+    views: 
+    {
+        'register-tab': 
+        {
+          templateUrl: 'templates/register.html',
+        }
+    }
+  })
+
   .state('main', 
   {
     url: '/',
     abstract: true,
-    templateUrl: 'templates/main.html'
+    templateUrl: 'templates/main.html',
   })
 
-  .state('main.dash', 
+  .state('main.orders', 
   {
-    url: 'main/dash',
+    url: 'main/orders',
     views: 
     {
-        'dash-tab': 
+        'orders-tab': 
         {
-          templateUrl: 'templates/dashboard.html',
-          controller: 'DashCtrl'
+          templateUrl: 'templates/orders.html',
         }
     }
   })
@@ -59,6 +83,7 @@ angular.module('starter')
   .state('main.shop',
   {
     url: 'main/shop',
+    cache: false,
     views: 
     {
         'shop-tab': 
@@ -71,13 +96,26 @@ angular.module('starter')
     {
       authorizedRoles: [USER_ROLES.admin]
     }
+  })
+  .state('main.cart',
+  {
+    url: 'main/cart',
+    cache: false,
+    views: 
+    {
+      'cart-tab':
+      {
+        templateUrl: 'templates/cart.html',
+        controller: 'CartCtrl' 
+      }  
+    }
   });
   
   // Thanks to Ben Noblet!
   $urlRouterProvider.otherwise(function ($injector, $location) 
   {
     var $state = $injector.get("$state");
-    $state.go("main.dash");
+    $state.go("main.ranking");
   });
   $ionicConfigProvider.tabs.position('bottom');
   $ionicConfigProvider.navBar.alignTitle('center');
