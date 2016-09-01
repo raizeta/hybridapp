@@ -132,8 +132,8 @@ function($rootScope,$http, $q, $window)
 			DeleteProduct:DeleteProduct
 		}
 }])
-.factory('OrderService', ["$rootScope","$http","$q","$window",
-function($rootScope,$http, $q, $window)
+.factory('OrderService', ["$rootScope","$http","$q","$window","OrderDetailService",
+function($rootScope,$http, $q, $window,OrderDetailService)
 {
 	var globalurl 		= $rootScope.linkurl.linkurl;
 	var deferred 		= $q.defer();
@@ -141,10 +141,11 @@ function($rootScope,$http, $q, $window)
     {
 		var url = globalurl + "/orders/search?STATUS=1";
 		var method ="GET";
-		$http({method:method, url:url,cache:false})
+		$http.get(url)
         .success(function(response) 
         {
 	        deferred.resolve(response.Orders);
+          	
         })
         .error(function(err,status)
         {
@@ -165,7 +166,7 @@ function($rootScope,$http, $q, $window)
 		var deferred 		= $q.defer();
 		var url = globalurl + "/orders/" + $id;
 		var method ="GET";
-		$http({method:method, url:url,cache:true})
+		$http({method:method, url:url,cache:false})
         .success(function(response) 
         {
 	        deferred.resolve(response);
@@ -184,7 +185,7 @@ function($rootScope,$http, $q, $window)
 
         return deferred.promise;  
     }
-    var CreateOrder = function(detail)
+    var CreateOrder = function(detail,orderdetail)
     {
 		var result              = $rootScope.seriliazeobject(detail);
         var serialized          = result.serialized;
@@ -193,9 +194,34 @@ function($rootScope,$http, $q, $window)
 		var url = globalurl + "/orders";
 		var method ="POST";
 		$http.post(url,serialized,config)
-        .success(function(response,status,headers,config) 
+        .success(function(data,status,headers,config) 
         {
-	        deferred.resolve(response);
+	        angular.forEach(orderdetail,function(value,key)
+          	{
+	            if(angular.isDefined(value.quantity))
+	            {
+	                var detailproduct = {};
+	                detailproduct.KD_PRODUCT  = value.KD_PRODUCT;
+	                detailproduct.JLH_ITEM    = value.quantity;
+	                detailproduct.HARGA_ITEM  = 1000;
+	                detailproduct.KD_ORDER    = data.ID;
+	                detailproduct.CREATE_AT   = $rootScope.tanggalwaktuharini;
+	                detailproduct.CREATE_BY   = 1;
+	                detailproduct.UPDATE_AT   = $rootScope.tanggalwaktuharini;
+	                detailproduct.UPDATE_BY   = 1;
+
+	                OrderDetailService.CreateOrderDetail(detailproduct)
+	                .then (function(response)
+	                {
+	                },
+	                function (error)
+	                {
+	                  console.log(error);
+	                });
+	            }
+          	});
+
+          	deferred.resolve(data);
         })
         .error(function(err,status)
         {
