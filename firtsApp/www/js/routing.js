@@ -55,6 +55,19 @@ angular.module('starter')
         }
     }
   })
+  .state('main.order', 
+  {
+    url: 'main/order/:id',
+    cache: false,
+    views: 
+    {
+        'orders-tab': 
+        {
+          templateUrl: 'templates/ordersdetails.html',
+          controller: 'OrdersDetailsCtrl'
+        }
+    }
+  })
 
   .state('main.ranking', 
   {
@@ -117,7 +130,7 @@ angular.module('starter')
   $urlRouterProvider.otherwise(function ($injector, $location) 
   {
     var $state = $injector.get("$state");
-    $state.go("main.ranking");
+    $state.go("auth.login");
   });
   $ionicConfigProvider.tabs.position('bottom');
   $ionicConfigProvider.navBar.alignTitle('center');

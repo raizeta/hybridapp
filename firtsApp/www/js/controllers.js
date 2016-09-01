@@ -186,7 +186,13 @@ angular.module('starter')
 
 .controller('RangkingCtrl', function($scope, $state, $http, $ionicPopup, AuthService,$interval,$timeout) 
 {
-  $scope.groups = [{name: "Satu"},{name:"Dua"},{name:"Tiga"},{name:"Empat"},{name:"Lima"}];
+  $scope.groups = [
+                    {name:"Mitra Sejati",gambar:'arya.jpg',spent:20000000,qty:2000,order:10},
+                    {name:"Teman Sejati",gambar:'daenerys.jpg',spent:30000000,qty:3000,order:20},
+                    {name:"Sahabat Sejati",gambar:'tyrion.jpg',spent:40000000,qty:4000,order:30},
+                    {name:"Rekan Sejati",gambar:'logo.png',spent:50000000,qty:5000,order:40},
+                    {name:"Konco Sejati",gambar:'profile-bg.jpg',spent:60000000,qty:6000,order:50}
+                  ];
   // for (var i=0; i<5; i++) 
   // {
   //   $scope.groups[i] = {name: i};
@@ -305,4 +311,18 @@ angular.module('starter')
       });
     };
     $scope.doRefresh();
+})
+
+.controller('OrdersDetailsCtrl', function($window,$rootScope,$scope, $state, $http, $interval, $ionicPopup, AuthService,OrderDetailService,$stateParams) 
+{
+    var IDORDERS = $stateParams.id;
+    OrderDetailService.GetOrderDetailsByIdOrders(IDORDERS)
+    .then (function(response)
+    {
+        $scope.ordersdetails = response;
+    },
+    function (error)
+    {
+
+    })
 });
