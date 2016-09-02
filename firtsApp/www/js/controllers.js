@@ -153,7 +153,7 @@ angular.module('starter')
               detail.CUST_NM        = 'CUST RAIZETA';
               detail.KD_EVENT       = 'MES.001';
               detail.NM_EVENT       = 'MAXI-EVENT-SMS';
-              detail.TOTAL_ORDER    = total * 1000;
+              detail.TOTAL_ORDER    = total * 8000;
               detail.STATUS_ORDER   = 1;
               detail.CREATE_AT      = $rootScope.tanggalwaktuharini;
               detail.CREATE_BY      = 1;
@@ -262,7 +262,7 @@ angular.module('starter')
   
 })
 
-.controller('ProfileCtrl', function($scope, $stateParams, $timeout, ionicMaterialMotion, ionicMaterialInk) {
+.controller('ProfilesCtrl', function($scope, $stateParams, $timeout, ionicMaterialMotion, ionicMaterialInk) {
     // Set Header
     // $scope.$parent.showHeader();
     // $scope.$parent.clearFabs();
@@ -295,7 +295,6 @@ angular.module('starter')
 
 .controller('OrderCtrl', function($window,$rootScope,$scope, $state, $http, $interval, $ionicPopup, AuthService,OrderService) 
 {
-
     $scope.doRefresh = function() 
     {
       OrderService.GetOrders()

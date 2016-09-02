@@ -1,20 +1,12 @@
-<!-- <ion-view view-title="OrdersDetail Area" name="orders-view">
-  	<ion-content class="padding">
-radumta
-
-        </div>
-  	</ion-content>
-</ion-view> -->
-
-<ion-view view-title="ORDER DETAIL AREA" name="dashboard-view">
+<ion-view view-title="ORDER DETAIL AREA">
   <ion-content class="padding">
-		<div class="list chat-item item-remove-animate" ng-repeat="item in ordersdetails">
+		    <div class="list" ng-repeat="item in ordersdetails">
             <a class="item item-avatar item-icon-right">
                 <img ng-src="{{'graph/'+ item.KD_PRODUCT +'.png'}}" class="icon">
                 <h2>{{item.KD_PRODUCT}}</h2>
                 <p>Harga : Rp. {{item.HARGA_ITEM|number}}</p>
                 <p>Quantity : {{item.JLH_ITEM}} item</p>
-                <i class="icon ion-arrow-right-a muted"></i>
+                <i class="icon"><h2>Rp. {{(item.HARGA_ITEM * item.JLH_ITEM)|number}}</h2></i>
             </a>
         </div>
   </ion-content>

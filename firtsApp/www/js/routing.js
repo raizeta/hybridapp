@@ -8,8 +8,8 @@ angular.module('starter')
     url: '/',
     templateUrl: 'templates/mainlogin.html',
     abstract:true,
-
   })
+
   .state('auth.login', 
   {
     url: 'auth/login',
@@ -23,6 +23,7 @@ angular.module('starter')
         }
     }
   })
+
   .state('auth.register', 
   {
     url: 'auth/register',
@@ -45,7 +46,6 @@ angular.module('starter')
   .state('main.orders', 
   {
     url: 'main/orders',
-    cache: false,
     views: 
     {
         'orders-tab': 
@@ -55,10 +55,10 @@ angular.module('starter')
         }
     }
   })
+
   .state('main.order', 
   {
     url: 'main/order/:id',
-    cache: false,
     views: 
     {
         'orders-tab': 
@@ -82,23 +82,9 @@ angular.module('starter')
     }
   })
 
-  .state('main.profile', 
-  {
-    url: 'main/profile',
-    views: 
-    {
-        'profile-tab': 
-        {
-          templateUrl: 'templates/profile.html',
-          controller: 'ProfileCtrl'
-        }
-    }
-  })
-
   .state('main.shop',
   {
     url: 'main/shop',
-    cache: false,
     views: 
     {
         'shop-tab': 
@@ -115,7 +101,6 @@ angular.module('starter')
   .state('main.cart',
   {
     url: 'main/cart',
-    cache: false,
     views: 
     {
       'cart-tab':
@@ -123,6 +108,19 @@ angular.module('starter')
         templateUrl: 'templates/cart.html',
         controller: 'CartCtrl' 
       }  
+    }
+  })
+
+  .state('main.profiles', 
+  {
+    url: 'main/profiles',
+    views: 
+    {
+        'profiles-tab': 
+        {
+          templateUrl: 'templates/profiles.html',
+          controller:'ProfilesCtrl'
+        }
     }
   });
   
@@ -134,4 +132,5 @@ angular.module('starter')
   });
   $ionicConfigProvider.tabs.position('bottom');
   $ionicConfigProvider.navBar.alignTitle('center');
+
 });

@@ -6,7 +6,7 @@
                 <input type="search" placeholder="">
             </label>
         </form>
-        <ion-list >
+<!--         <ion-list >
 			<ion-item class="chat-item item-remove-animate item-thumbnail-left" ng-repeat="item in menu_items">
                 <img  ng-src="{{'graph/'+ item.KD_PRODUCT +'.png'}}"  ng-click="addtocart(item)">
 				
@@ -20,7 +20,28 @@
 					{{item.NM_PRODUCT}} 
 				</h2>
 			</ion-item>
-			 
-        </ion-list>
+        </ion-list> -->
+        <div class="list chat-item item-remove-animate" ng-repeat="item in menu_items">
+            <a class="item item-avatar item-icon-right" ng-click="addtocart(item)">
+                <img ng-src="{{'graph/'+ item.KD_PRODUCT +'.png'}}" class="icon">
+                <h2>{{item.NM_PRODUCT}}</h2>
+                <p>Rp. 8.000/Pcs</p>
+                <i class="icon icon ion-android-cart"><h2>{{item.quantity}}</h2></i>
+            </a>
+        </div>
   </ion-content>
 </ion-view>
+
+<!-- <ion-view view-title="ORDER DETAIL AREA" name="dashboard-view">
+  <ion-content class="padding">
+		<div class="list chat-item item-remove-animate" ng-repeat="item in ordersdetails">
+            <a class="item item-avatar item-icon-right">
+                <img ng-src="{{'graph/'+ item.KD_PRODUCT +'.png'}}" class="icon">
+                <h2>{{item.KD_PRODUCT}}</h2>
+                <p>Harga : Rp. {{item.HARGA_ITEM|number}}</p>
+                <p>Quantity : {{item.JLH_ITEM}} item</p>
+                <i class="icon"><h2>Rp. {{(item.HARGA_ITEM * item.JLH_ITEM)|number}}</h2></i>
+            </a>
+        </div>
+  </ion-content>
+</ion-view> -->

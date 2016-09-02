@@ -1,6 +1,6 @@
-<ion-view view-title="YOUR CART" name="dashboard-view">
+<ion-view view-title="YOUR CART">
   <ion-content class="padding">
-        <ion-list >
+        <ion-list can-swipe="true">
 			<ion-item class="chat-item item-remove-animate item-thumbnail-left" ng-repeat="item in menu_items" ng-if="item.quantity">
                 <img  ng-src="{{'graph/'+ item.KD_PRODUCT +'.png'}}"  ng-click="addtocart(item)">
 				
@@ -13,6 +13,7 @@
 				<h2 ng-click="addtocart(item)" > 
 					{{item.NM_PRODUCT}} 
 				</h2>
+				<ion-option-button class="button-light icon ion-edit"></ion-option-button>
 			</ion-item> 
         </ion-list>
         <button class="button button-block button-calm" ng-click="placeanorder(data)" ng-show="cartberisi">Place An Order</button>

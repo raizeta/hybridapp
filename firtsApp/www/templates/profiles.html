@@ -1,5 +1,5 @@
 <ion-view view-title="Profile">
-    <ion-content ng-class="{expanded:$scope.isExpanded}">
+    <ion-content>
         <div class="hero slide-up" style="background-image: url('img/profile-bg.jpg');">
             <div class="content">
                 <div class="avatar" style="background-image: url('img/daenerys.jpg');"></div>
@@ -13,6 +13,12 @@
             </a>
             <a href="#/main/rangking" class="tab-item">
                 <i class="icon ion-android-done-all"></i> Banner
+            </a>
+            <a href="#/main/shop" class="tab-item">
+                <i class="icon ion-android-cart"></i> Orders
+            </a>
+            <a href="#/main/shop" class="tab-item">
+                <i class="icon ion-social-usd-outline"></i> Bank
             </a>
             <a href="#/main/shop" class="tab-item">
                 <i class="icon ion-locked"></i> Security
@@ -35,7 +41,7 @@
                 Logout {{$index  }} Pada Waktu 23-09-2016 16:45
               </ion-item>
             </div>
-        </ion-list>  
+        </ion-list> 
     </ion-content>
 </ion-view>
 <link href="www/lib/ionic-material/dist/ionic.material.min.css" rel="stylesheet">
