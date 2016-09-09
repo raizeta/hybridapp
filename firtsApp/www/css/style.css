@@ -50,3 +50,32 @@
 .Aligner-item--bottom {
   align-self: flex-end;
 }
+
+.item .icon .icon-badge 
+{
+  position: absolute;
+  top: 7px;
+  right: 0px;
+  font-size: 8px;
+}
+
+/*.scroll-content {
+  display: table !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+.scroll {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}*/
+
+.mask {
+  top: 0;
+  left: 0;
+  right: 0;
+  position: absolute;
+  height: 195px;
+  width: 100%;
+  background: radial-gradient(circle, transparent 81px, white 81px);
+}

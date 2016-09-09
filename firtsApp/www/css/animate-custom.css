@@ -17,7 +17,7 @@
 }
 .rank-item.ng-leave 
 {
-    animation: fadeInLeft 1s;
+    animation: fadeInLeft 5s;
 }
 
 .custom {

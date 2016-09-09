@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="starter">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Expires" content="0" />
+    
     <title></title>
 
     <link href="lib/ionic/css/ionic.css" rel="stylesheet">
@@ -14,31 +15,50 @@
     <link href="css/animate-custom.css" rel="stylesheet">
     <link href="css/image-custom.css" rel="stylesheet">
 
-    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
-    <link href="css/ionic.app.css" rel="stylesheet">
-    -->
+    <!-- <link href="lib/ionic-material/dist/ionic.material.min.css" rel="stylesheet"> -->
+    <link href="css/style.css" rel="stylesheet">
 
-    <!-- ionic/angularjs js -->
     <script src="lib/ionic/js/ionic.bundle.js"></script>
-
-    <!-- cordova script (this will be a 404 during development) -->
+    <script src="lib/ngCordova/dist/ng-cordova.js"></script>
+    <script src="lib/ng-cordova-oauth/dist/ng-cordova-oauth.min.js"></script>
     <script src="cordova.js"></script>
 
-    <!-- your app's js -->
     <script src="js/app.js"></script>
-    <script src="js/controllers.js"></script>
-    <script src="js/services.js"></script>
-    <script src="js/factory.js"></script>
+    <script src="js/controllers/markets.js"></script>
+    <script src="js/controllers/orders.js"></script>
+    <script src="js/controllers/profiles.js"></script>
+    <script src="js/controllers/rangkings.js"></script>
+    <script src="js/controllers/secured.js"></script>
+
+    <script src="js/factory/orderdetails.js"></script>
+    <script src="js/factory/orders.js"></script>
+    <script src="js/factory/products.js"></script>
+    <script src="js/factory/services.js"></script>
+
+    <script src="js/routing/config.js"></script>
+    <script src="js/routing/markets.js"></script>
+    <script src="js/routing/orders.js"></script>
+    <script src="js/routing/profiles.js"></script>
+    <script src="js/routing/rangkings.js"></script>
+    <script src="js/routing/secured.js"></script>
+
+    <script src="js/directive/numberonly.js"></script>
+
     <script src="js/constants.js"></script>
-    <script src="js/routing.js"></script>
     <script src="lib/angular-mocks/angular-mocks.js"></script>
     <script src="lib/underscore/underscore.js"></script>
 
+    
 
-    <!-- <link href="www/lib/ionic-material/dist/ionic.material.min.css" rel="stylesheet"> -->
-    <script src="www/lib/ionic-material/dist/ionic.material.min.js"></script>
+    <script src="lib/ionic-material/dist/ionic.material.min.js"></script>
+    <!-- // <script src="lib/auth0-lock/build/auth0-lock.js"></script> -->
+    <script src="lib/auth0.js/build/auth0.js"></script>
+    <script src="lib/auth0-angular/build/auth0-angular.js"></script>
+    <script src="lib/a0-angular-storage/dist/angular-storage.js"></script>
+    <script src="lib/angular-jwt/dist/angular-jwt.js"></script>
+    
   </head>
-  <body ng-app="starter" ng-controller="AppCtrl">
-    <ion-nav-view></ion-nav-view>
+  <body ng-controller="AppCtrl">
+        <ion-nav-view></ion-nav-view>
   </body>
 </html>

@@ -1,12 +1,16 @@
 <ion-view view-title="Orders Area" name="orders-view">
   	<ion-content class="padding">
         <ion-refresher pulling-text="Pull to refresh..." on-refresh="doRefresh()"></ion-refresher>
-        <div class="list chat-item item-remove-animate" ng-repeat="order in orders | orderBy: 'TGL_ORDER':true">
+        <button type="submit" class="button button-block button-positive">
+            Total Spent : Rp. {{totalorders|number}}
+        </button>
+        <div class="list" ng-repeat="order in orders | orderBy: 'TGL_ORDER':true">
             <a ui-sref="main.order({id:order.ID})" class="item item-avatar item-icon-right">
                 <img src="img/tyrion.jpg" class="icon">
                 <h2>{{order.NO_RESIORDER}}</h2>
                 <p>Rp. {{order.TOTAL_ORDER|number}}</p>
                 <p>{{order.TGL_ORDER}}</p>
+                <p>PAID</p>
                 <i class="icon ion-arrow-right-a muted">{{orders.length - $index}}</i>
             </a>
         </div>
