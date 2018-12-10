@@ -23,7 +23,7 @@ npm install angular-jwt
 ```
 
 ```html
-<script type="text/javascript" src="https://cdn.rawgit.com/auth0/angular-jwt/master/dist/angular-jwt.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/auth0/angular-jwt@master/dist/angular-jwt.js"></script>
 ```
 
 ## jwtHelper
